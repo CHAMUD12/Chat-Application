@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -7,7 +8,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
-
 
 <AnchorPane prefHeight="520.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.ServerFormController">
    <children>
@@ -31,5 +31,11 @@
             <VBox fx:id="serverVBox" prefHeight="387.0" prefWidth="413.0" style="-fx-background-color: E2E2E2;" />
          </content>
       </ScrollPane>
+      <ImageView fitHeight="31.0" fitWidth="39.0" layoutX="428.0" layoutY="28.0">
+         <image>
+            <Image url="@../assets/add-contact.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="428.0" layoutY="25.0" mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="31.0" prefWidth="39.0" style="-fx-background-color: transparent;" />
    </children>
 </AnchorPane>
