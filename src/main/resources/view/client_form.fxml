@@ -10,8 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="520.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="pane" prefHeight="520.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fitHeight="46.0" fitWidth="68.0" layoutX="20.0" layoutY="24.0">
          <image>
@@ -45,7 +44,7 @@
          </image>
       </ImageView>
       <Button layoutX="22.0" layoutY="478.0" mnemonicParsing="false" onAction="#btnAttachmentOnAction" prefHeight="27.0" prefWidth="27.0" style="-fx-background-color: transparent;" />
-      <Button layoutX="65.0" layoutY="477.0" mnemonicParsing="false" onAction="#btnEmojiOnAction" prefHeight="27.0" prefWidth="27.0" style="-fx-background-color: transparent;" />
+      <Button fx:id="emojiButton" layoutX="65.0" layoutY="477.0" mnemonicParsing="false" onAction="#btnEmojiOnAction" prefHeight="27.0" prefWidth="27.0" style="-fx-background-color: transparent;" />
       <Button layoutX="453.0" layoutY="479.0" mnemonicParsing="false" onAction="#btnSendOnAction" prefHeight="27.0" prefWidth="27.0" style="-fx-background-color: transparent;" />
       <Text fx:id="txtName" layoutX="239.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0">
          <font>
