@@ -24,7 +24,7 @@ public class LoginFormController {
     @FXML
     private TextField txtPassword;
 
-    private final String adminUserName = "Cha";
+    private final String adminUserName = "abc";
     private final String adminPassword = "1022";
 
     private String enteredUserName;

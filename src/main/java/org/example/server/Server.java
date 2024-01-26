@@ -18,7 +18,7 @@ public class Server {
         serverSocket = new ServerSocket(3002);
     }
 
-    private static Server getInstance() throws IOException {
+    public static Server getInstance() throws IOException {
         return server != null? server:(server = new Server());
     }
     public void makeSocket(){
