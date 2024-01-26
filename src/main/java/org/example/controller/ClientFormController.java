@@ -7,6 +7,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.net.Socket;
+
 public class ClientFormController {
     @FXML
     private ScrollPane scrollPane;
@@ -19,6 +23,14 @@ public class ClientFormController {
 
     @FXML
     private Text txtName;
+
+    private Socket socket;
+
+    private DataInputStream dataInputStream;
+
+    private DataOutputStream dataOutputStream;
+
+    private String clientName = "Client";
 
     @FXML
     void btnAttachmentOnAction(ActionEvent event) {
@@ -38,5 +50,13 @@ public class ClientFormController {
     @FXML
     void txtMessageOnAction(ActionEvent event) {
 
+    }
+
+    public void setClientName(String name) {
+        clientName = name;
+    }
+
+    public void shutdown() {
+       // ServerFormController.receiveMessage(clientName+" left.");
     }
 }
