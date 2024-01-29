@@ -132,6 +132,27 @@ public class ClientFormController {
         System.out.println(file + " chosen.");
     }
 
+    private void sendImage(String msgToSend) {
+        Image image = new Image("file:" + msgToSend);
+        ImageView imageView = new ImageView(image);
+        imageView.setFitHeight(200);
+        imageView.setFitWidth(200);
+
+        HBox hBox = new HBox();
+        hBox.setPadding(new Insets(5, 5, 5, 10));
+        hBox.getChildren().add(imageView);
+        hBox.setAlignment(Pos.CENTER_RIGHT);
+
+        txtMassageBox.getChildren().add(hBox);
+
+        try {
+            dataOutputStream.writeUTF(clientName + "-" + msgToSend);
+            dataOutputStream.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     @FXML
     void btnEmojiOnAction(ActionEvent event) {
 
@@ -182,27 +203,6 @@ public class ClientFormController {
 
                 txtMessage.clear();
             }
-        }
-    }
-
-    private void sendImage(String msgToSend) {
-        Image image = new Image("file:" + msgToSend);
-        ImageView imageView = new ImageView(image);
-        imageView.setFitHeight(200);
-        imageView.setFitWidth(200);
-
-        HBox hBox = new HBox();
-        hBox.setPadding(new Insets(5, 5, 5, 10));
-        hBox.getChildren().add(imageView);
-        hBox.setAlignment(Pos.CENTER_RIGHT);
-
-        txtMassageBox.getChildren().add(hBox);
-
-        try {
-            dataOutputStream.writeUTF(clientName + "-" + msgToSend);
-            dataOutputStream.flush();
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 
@@ -263,6 +263,7 @@ public class ClientFormController {
             });
         }
     }
+
     public void setClientName(String name) {
         clientName = name;
     }
