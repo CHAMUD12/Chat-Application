@@ -1,5 +1,6 @@
 package org.example.controller;
 
+import com.jfoenix.controls.JFXToggleButton;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -56,6 +57,8 @@ public class ClientFormController {
     private DataOutputStream dataOutputStream;
 
     private String clientName = "Client";
+    @FXML
+    private JFXToggleButton darkModeToggle;
 
     public void initialize(){
         txtName.setText(clientName);
@@ -89,6 +92,36 @@ public class ClientFormController {
 
         emoji();
 
+        this.txtMassageBox.heightProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observableValue, Number oldValue, Number newValue) {
+                scrollPane.setVvalue((Double) newValue);
+            }
+        });
+
+        emoji();
+
+        darkModeToggle.selectedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+                if (newValue) {
+                    applyDarkMode();
+                } else {
+                    removeDarkMode();
+                }
+            }
+        });
+
+    }
+
+    private void applyDarkMode() {
+        pane.setStyle("-fx-background-color: #333333;");
+        txtMassageBox.setStyle("-fx-background-color: #E0E3E3;");
+    }
+
+    private void removeDarkMode() {
+        pane.setStyle("");
+        txtMassageBox.setStyle("");
     }
 
     private void emoji() {
